@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.ViewModel;
 
 namespace WpfApp1
 {
@@ -24,14 +25,25 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = DataContext;
+            var vm = new MainViewModel();
+            vm.LoadButton=load_databtn;
+            vm.Cardtxtb = CardTxtb;
+            this.DataContext = vm;
         }
 
-       
-
-        private void reqem(object sender, System.Windows.Input.KeyEventArgs e)
+        private void Textchanged(object sender, TextChangedEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.Key) && !char.IsControl(e.KeyChar)
+            if (CardTxtb.Text.StartsWith("4840"))
+            {
+                string visa = "/Images/visa_logo_020615.jpg";
+                Uri imageUri = new Uri(visa, UriKind.Relative);
+                BitmapImage bitmapImage = new BitmapImage(imageUri);
+                ImageBox.Source = bitmapImage;
+            } 
+            else
+            {
+                ImageBox.Source=null;
+            }
         }
     }
 }

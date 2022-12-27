@@ -5,14 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Kapital Bank" Height="450" Width="900">
+        Title="Kapital Bank" Height="450" Width="700" >
     <Grid>
-
-        <TextBox Margin="5,10,531,374" KeyDown="reqem" Name="textbox" />
-        <Button Content="Button" Width="100" Height="50" Margin="321,10,279,374"/>
-        <Button Content="Load Data" Width="100" Height="50" Margin="321,87,279,297"/>
-        <TextBox Margin="169,87,531,297"  />
-
-
+        <Button Width="200"
+                Height="30"
+                Margin="0,-350,0,0"
+                Content="Insert Card"
+                Background="Gray"
+                Command="{Binding InsertCardCommand}"
+                Foreground="Yellow">
+        </Button>
+        <TextBox Width="300" Height="32"
+                 Margin="0,-250,0,0"
+                 Visibility="Visible"
+                 FontSize="25"
+                 TextAlignment="Center"
+                 Name="CardTxtb" TextChanged="Textchanged">
+        </TextBox>
+        <Button Width="100"
+                Height="30"
+                Margin="0,-150,0,0"
+                Content="Load Data"
+                Background="Green"
+                Foreground="White"
+                Name="load_databtn"
+                Command="{Binding LoadDataCommand}"
+                Visibility="Hidden"
+                >
+        </Button>
+        <TextBlock  Name="FullnameTxtBlock" Visibility="Visible" Foreground="Black" FontSize="25" Background="White" TextAlignment="Center" Width="600" Height="100" Margin="0,0,0,0"></TextBlock>
+        <TextBox Width="120"
+                 Height="50"
+                 Margin="-200,200,0,0"
+                 Name="CashTxtb"
+                 TextAlignment="Center"
+                 FontSize="30"></TextBox>
+        <Button Width="200"
+                Command="{Binding TransferMoneyCommand}"
+                Height="35"
+                Background="Gray"
+                Foreground="SpringGreen"
+                Content="Transfer Money"
+                FontSize="20"
+                Name="TransferMoneybtn"
+                Margin="200,200,0,0"></Button>
+        <Button Width="200"
+                Command="{Binding RefreshCommand}"
+                Height="35"
+                Background="Gray"
+                Foreground="White"
+                Content="Refresh Money"
+                FontSize="20"
+                Name="RefreshMoney"
+                Margin="200,350,0,0"></Button>
+        <Image Name="ImageBox" HorizontalAlignment="Left" Height="40" Margin="67,127,0,0" VerticalAlignment="Top" Width="83"/>
     </Grid>
 </Window>
