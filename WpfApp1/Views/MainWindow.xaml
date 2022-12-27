@@ -5,41 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Kapital Bank" Height="450" Width="700" >
+        Title="Pasha Pay" Height="450" Width="700" Icon="/Images/pasha.png" >
     <Grid>
-        <Button Width="200"
-                Height="30"
-                Margin="0,-350,0,0"
-                Content="Insert Card"
-                Background="Gray"
-                Command="{Binding InsertCardCommand}"
-                Foreground="Yellow">
-        </Button>
-        <TextBox Width="300" Height="32"
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/backgroudn.jpg"/>
+        </Grid.Background>
+        <TextBox  Width="300" Height="32"
                  Margin="0,-250,0,0"
+                 
                  Visibility="Visible"
                  FontSize="25"
                  TextAlignment="Center"
-                 Name="CardTxtb" TextChanged="Textchanged">
+                 Name="CardTxtb" TextChanged="Textchanged" SelectionBrush="{x:Null}" Background="{x:Null}" BorderBrush="White">
+
         </TextBox>
-        <Button Width="100"
-                Height="30"
-                Margin="0,-150,0,0"
-                Content="Load Data"
-                Background="Green"
-                Foreground="White"
-                Name="load_databtn"
-                Command="{Binding LoadDataCommand}"
-                Visibility="Hidden"
-                >
-        </Button>
-        <TextBlock  Name="FullnameTxtBlock" Visibility="Visible" Foreground="Black" FontSize="25" Background="White" TextAlignment="Center" Width="600" Height="100" Margin="0,0,0,0"></TextBlock>
+       
+        <TextBlock  Name="FullnameTxtBlock" Visibility="Visible" Foreground="Black" FontSize="25" TextAlignment="Center" Width="600" Height="100" Margin="0,0,0,0" FontFamily="Yu Gothic UI Semibold" FontWeight="Bold"/>
         <TextBox Width="120"
                  Height="50"
                  Margin="-200,200,0,0"
                  Name="CashTxtb"
                  TextAlignment="Center"
-                 FontSize="30"></TextBox>
+                 FontSize="30" Background="{x:Null}" BorderBrush="#FF30FF13" Text=""></TextBox>
         <Button Width="200"
                 Command="{Binding TransferMoneyCommand}"
                 Height="35"
@@ -58,6 +45,8 @@
                 FontSize="20"
                 Name="RefreshMoney"
                 Margin="200,350,0,0"></Button>
-        <Image Name="ImageBox" HorizontalAlignment="Left" Height="40" Margin="67,127,0,0" VerticalAlignment="Top" Width="83"/>
+        <Image Name="ImageBox" HorizontalAlignment="Left" Height="49" Margin="200,113,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Mebleg" HorizontalAlignment="Left" Margin="98,292,0,0" VerticalAlignment="Top" Height="50" Width="77" FontWeight="Bold" FontSize="18" Foreground="#FFADDDED"/>
+        <Label Content="Card No:" HorizontalAlignment="Left" Margin="90,60,0,0" VerticalAlignment="Top" Height="32" Width="92" FontWeight="Bold" FontSize="18" Foreground="#FF323738"/>
     </Grid>
 </Window>

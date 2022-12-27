@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,15 @@ namespace WpfApp1.ViewModel
     {
         public RelayCommand InsertCardCommand { get; set; }
         private Button loadbutton;
+        public RelayCommand TransferMoneyCommand { get; set; }
+        private ObservableCollection<Data> datas;
+
+        public ObservableCollection<Data> Datas
+        {
+            get { return datas; }
+            set { datas = value;OnPropertyChanged(); }
+        }
+
 
         public Button LoadButton
         {
@@ -28,12 +38,14 @@ namespace WpfApp1.ViewModel
         }
         public MainViewModel()
         {
-            InsertCardCommand = new RelayCommand(x =>
+            Datas = new ObservableCollection<Data>();
+            var datas = Data.getAll();
+           
+            TransferMoneyCommand = new RelayCommand(t =>
             {
-                LoadButton.Visibility=Visibility.Visible;
-                cardtxtb.Visibility=Visibility.Visible; 
-
+                
             });
+
         }
     }
 }
